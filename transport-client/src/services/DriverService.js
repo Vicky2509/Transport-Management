@@ -45,4 +45,4 @@ class DriverService {
     }
 }
 
-export default new DriverService()
+export default new DriverService();

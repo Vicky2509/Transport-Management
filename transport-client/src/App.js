@@ -1,6 +1,8 @@
 import './App.css'
+import './frontendheader.css'
 import React from "react";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import FrontendHeader from "./components/FrontendHeader";
 import ListVehicleComponent from "./components/VehicleComponent/ListVehicleComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
@@ -26,7 +28,8 @@ function App() {
         <div>
             <BrowserRouter>
                 <div>
-                    <HeaderComponent/>
+                    <FrontendHeader/>
+                    {/* <HeaderComponent/> */}
                     <div className="container">
                         <Switch>
 
@@ -59,7 +62,7 @@ function App() {
                             <Route path="/statisticalVehicle" exact component={StatisticalVehicleComponent}></Route>
                             <Route path="/totalStatisticalVehicle" component={TotalStatisticalVehicleComponent}></Route>
                         </Switch>
-                    </div>
+                    </div> 
 
                 </div>
             </BrowserRouter>

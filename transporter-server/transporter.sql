@@ -159,7 +159,7 @@ CREATE TABLE `route` (
 --
 
 INSERT INTO `route` (`id`, `first_point`, `end_point`, `length`, `complexity`) VALUES
-(1, 'abcd', ' TP Hồ Chí Minh', 265, 3),
+(1, 'abcd', ' kendrapada', 265, 3),
 (2, 'Hà Nam ', ' Hà Nội', 56.4, 1),
 (6, 'Hà Nội ', ' Nam Định', 85.5, 2),
 (7, 'Lâm Đồng', ' Khánh Hòa', 194, 3),
