@@ -1,11 +1,20 @@
-import './App.css'
-import './frontendheader.css'
+// import './App.css'
+// import './Frontend CSS/frontendheader.css'
+// import './Frontend CSS/hero-slider.css'
+// import './Frontend CSS/common-section.css'
+// import './Frontend CSS/about-section.css'
+// import './Frontend CSS/Apply.css'
+
 import React from "react";
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Route,Switch, Routes,Navigate, Redirect,} from "react-router-dom";
 import FrontendHeader from "./components/FrontendHeader";
+import Home from './components/FrontendUI/Home';
+import About from './components/FrontendUI/About';
+import ApplyNow from './components/FrontendUI/ApplyNow';
+// import NotFound from './components/FrontendUI/NotFound';
+// import HeroSlider from './components/FrontendUI/HeroSlider';
 import ListVehicleComponent from "./components/VehicleComponent/ListVehicleComponent";
 import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from "./components/FooterComponent";
 import AddVehicleComponent from "./components/VehicleComponent/AddVehicleComponent";
 import UpdateVehicleComponent from "./components/VehicleComponent/UpdateVehicleComponent";
 import ListDriverComponent from "./components/DriverComponent/ListDriverComponent";
@@ -28,10 +37,19 @@ function App() {
         <div>
             <BrowserRouter>
                 <div>
-                    <FrontendHeader/>
-                    {/* <HeaderComponent/> */}
+                    <FrontendHeader />
+                    {/* <HeroSlider/> */}
+                    {/* <HeaderComponent /> */}
                     <div className="container">
-                        <Switch>
+                        {/* <Switch> */}
+
+                            {/* <Route path="/" component={<Redirect to="/home" />}></Route> */}
+                            <Route path="/home" component={Home}></Route>
+                            <Route path="/about" component={About}></Route>
+                            {/* <Route path="/route" element={<ListRouteComponent />} /> */}
+                            <Route path="/applynow" component={<ApplyNow />} />
+                            {/* <Route path="/contact" element={<Contact />} /> */}
+                            {/* <Route path="*" component={<NotFound />} />  */}
 
                             <Route path="/listVehicles" component={ListVehicleComponent}></Route>
                             <Route path="/vehicles" component={ListVehicleComponent}></Route>
@@ -61,13 +79,15 @@ function App() {
                             <Route path="/totalStatisticalDriver" component={TotalStatisticalDriverComponent}></Route>
                             <Route path="/statisticalVehicle" exact component={StatisticalVehicleComponent}></Route>
                             <Route path="/totalStatisticalVehicle" component={TotalStatisticalVehicleComponent}></Route>
-                        </Switch>
-                    </div> 
+                        {/* </Switch> */}
+                    </div>
 
                 </div>
             </BrowserRouter>
-            <FooterComponent/>
+        
+            {/* <FooterComponent /> */}
         </div>
+        
 
     );
 }

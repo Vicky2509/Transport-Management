@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.14",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -17,8 +20,10 @@
     "react-router": "^5.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
+    "react-slick": "^0.29.0",
     "reactstrap": "^9.1.6",
     "remixicon": "^2.5.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

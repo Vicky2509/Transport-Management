@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
-// import "../../styles/frontendheader.css";
+import '../Frontend CSS/frontendheader.css';
+
+
+// import HeroSlider from "./FrontendUI/HeroSlider";
 
 
 
@@ -11,7 +14,7 @@ const navLinks = [
     display: 'Home'
   },
   {
-    path: '/#',
+    path: '/about',
     display: 'About'
   },
   {
@@ -22,13 +25,14 @@ const navLinks = [
 ]
 
 
+
 const Header = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 
 
-  const [modal, setmodal] = useState(false)
+  const [modal,setmodal] = useState(false)
   const menuRef = useRef(null)
   const toggleMenu = () => menuRef.current.classList.toggle('menu__active')
   return (
@@ -176,6 +180,8 @@ const Header = () => {
 
 
     </header>
+
+   
   );
 };
 
