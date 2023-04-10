@@ -1,6 +1,6 @@
 .header__top{
     padding: 10px 0px;
-    background: #FB2576;
+    background: #3246ce;
     color: white;
 }
 
@@ -23,7 +23,7 @@
 
 .header__top__help i{
     background: #fff;
-    color: #FB2576;
+    color: #3246ce;
     padding: 2px 4px;
     border-radius: 50%;
     font-size: 0.8rem;
@@ -37,6 +37,8 @@ font-size: .9rem;
 .header__top__right a:hover{
     color:#fff;
 }
+
+
 
 
 /* =====================headder middle=================== */
@@ -54,14 +56,14 @@ font-size: 1.5rem;
 }
 .logo h1 a{
 text-decoration: none;
-color: #FB2576;
+color: #3246ce;
 font-weight: 700;
 
 }
 
 .logo h1 a i{
     font-size: 2.7rem;
-    color: #FB2576;
+    color: #3246ce;
 
 
 }
@@ -69,24 +71,26 @@ font-weight: 700;
     line-height: 1.5rem;
 
 }
-
+.imo{
+    width: 50px;
+}
 .header__location span i{
     font-size: 2.2rem;
-    color:#FB2576;
+    color:#3246ce;
 
 
 }
 .header__location__content h4{
     font-size: 1rem;
     font-weight: 700;
-    color:#FB2576;
+    color:#3246ce;
 }
 .header__location__content h6{
     font-weight: 600;
     font-size: .9rem;
 }
 .header__btn{
-    background: #FB2576 !important;
+    background: #3246ce !important;
     padding: 10px 20px;
     border:none;
     outline: none;
@@ -102,13 +106,15 @@ font-weight: 700;
     
 }
 .header__btn:hover{
-    background: transparent !important;
+   background-color: #3246ce;
+   color: yellow;
+    
 }
 
 .header__btn i
 {
 
-    background: #FB2576 !important;
+   
    
     border:none;
     outline: none;
@@ -134,7 +140,7 @@ font-weight: 700;
 
  .main__navbar{
     padding: 15px 0px;
-    background:#FB2576;
+    background:#3246ce;
 
 
  }

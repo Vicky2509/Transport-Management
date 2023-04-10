@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.14",
@@ -27,6 +28,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "dev":"concurrently \"npm start\" \"cd api && npm start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^8.0.1",
     "jquery": "^3.6.0"
   }
 }

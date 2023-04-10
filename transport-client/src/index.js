@@ -8,16 +8,21 @@ import "remixicon/fonts/remixicon.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Auth0Provider
+      domain="transport-management-authentication.us.auth0.com"
+      clientId="7HdvyiD4BAE9CWrA4yPTFkJQqxvpY0Iw"
+      authorizationParams={{
+        redirect_uri: window.location.origin
+      }}
+    >
       <App />
-    </Router>
-    
+    </Auth0Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

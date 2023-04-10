@@ -2,7 +2,19 @@ import React, { useRef, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import '../Frontend CSS/frontendheader.css';
+import { Modal,ModalHeader } from "reactstrap";
+import cutmlogo from "../assets/all-images/cutmlg.png";
+import { useAuth0 } from "@auth0/auth0-react";
 
+
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
 
 // import HeroSlider from "./FrontendUI/HeroSlider";
 
@@ -20,8 +32,7 @@ const navLinks = [
   {
     path: '/listRoutes',
     display: 'Routes'
-  },
-
+  }
 ]
 
 
@@ -30,9 +41,20 @@ const Header = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  const [modal, setmodal] = useState(false)
+
+  const {loginWithPopup, loginWithRedirect, logout,user, isAuthenticated } = useAuth0();
 
 
-  const [modal,setmodal] = useState(false)
   const menuRef = useRef(null)
   const toggleMenu = () => menuRef.current.classList.toggle('menu__active')
   return (
@@ -50,14 +72,24 @@ const Header = () => {
                 +91 7978797141
               </div>
             </Col>
+            {/*---------------------------- Login and Logout Feature-----------------*/}
             <Col lg="6" md="6" sm="6">
-              <div className="header__top__right d-flex align-items-center justify-content-end">
-                <Link to="https://cutm.icloudems.com/corecampus/index.php" className="d-flex align-items-center">
-                  <i class="ri-login-circle-line"></i> Login
-                </Link>
-              </div>
+              {
+                isAuthenticated ? (
+                  <div className="header__top__right d-flex align-items-center justify-content-end">
+                    <button className="header__btn btn d-flex align-items-center" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                      <i className="ri-logout-circle-line">Logout</i>
+                    </button>
+                  </div>
+                ) : (
+                  <div className="header__top__right d-flex align-items-center justify-content-end">
+                    <button className="header__btn btn d-flex align-items-center" onClick={() => loginWithPopup()}>
+                      <i className="ri-login-circle-line">Login</i>
+                    </button>
+                  </div>
+                )
+              }
             </Col>
-
           </Row>
         </Container>
       </div>
@@ -69,10 +101,9 @@ const Header = () => {
               <div className="logo">
                 <h1>
                   <Link to="/home" className="d-flex align-items-center gap-3">
-                    <i class="ri-bus-wifi-line"></i>
-                    <span>
+                  <img src={cutmlogo} className="imo"/>
+                  <span>
                       Acquire Your Seat <br />
-                      Routes
                     </span>
                   </Link>
                 </h1>
@@ -81,7 +112,7 @@ const Header = () => {
             <Col lg="3" md="3" sm="4">
               <div className="header__location d-flex align-items-center">
                 <span>
-                  <i class="ri-map-pin-line"></i>
+                  <i className="ri-map-pin-line"></i>
                 </span>
                 <div className="header__location__content">
                   <h4>Bhubanswar</h4>
@@ -93,7 +124,7 @@ const Header = () => {
             <Col lg="3" md="3" sm="4">
               <div className="header__location d-flex align-items-center">
                 <span>
-                  <i class="ri-time-line"></i>
+                  <i className="ri-time-line"></i>
                 </span>
                 <div className="header__location__content">
                   <h4>Monday to Saturday</h4>
@@ -112,7 +143,7 @@ const Header = () => {
               <ModalBody> */}
 
 
-                {/* <Paper sx={{ width: '100%' }}>
+            {/* <Paper sx={{ width: '100%' }}>
                   <TableContainer sx={{ maxHeight: 440 }}>
                     <Table stickyHeader aria-label="sticky table">
                       <TableHead>
@@ -143,14 +174,14 @@ const Header = () => {
               </ModalBody>
 
             </Modal> */}
-            <Col lg="2" md="3" sm="0" className="d-flex align-items-center justify-content-end">
+            {/* <Col lg="2" md="3" sm="0" className="d-flex align-items-center justify-content-end">
               <button className="header__btn btn d-flex align-items-center justify-content-end text-end " onClick={() => setmodal(true)}>
 
 
                 <i>Routes</i>
 
               </button>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </div>
@@ -161,7 +192,7 @@ const Header = () => {
         <Container>
           <div className="navigation__wrapper d-flex align-items-center justify-content-between">
             <span className="mobile__menu">
-              <i class="ri-menu-2-line" onClick={toggleMenu}></i>
+              <i className="ri-menu-2-line" onClick={toggleMenu}></i>
             </span>
             <div className="navigation" ref={menuRef} onClick={toggleMenu}>
               <div className="menu">
@@ -180,8 +211,9 @@ const Header = () => {
 
 
     </header>
+  
 
-   
+
   );
 };
 
